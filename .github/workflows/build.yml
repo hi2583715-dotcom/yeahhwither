@@ -22,11 +22,12 @@ jobs:
         with:
           gradle-version: '9.8.2'
 
-      - name: Build mod
+      - name: Build Wither Form
+        working-directory: witherform
         run: gradle build --no-daemon
 
       - name: Upload mod
         uses: actions/upload-artifact@v4
         with:
           name: WitherForm-26.3
-          path: build/libs/*.jar
+          path: witherform/build/libs/*.jar
