@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "witherform",
+  "version": "${version}",
+  "name": "Wither Form",
+  "description": "Hold the Wither Skull in your offhand to transform into the Wither: creative-style flight, wither effects, and a triple skull blast.",
+  "authors": [],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.witherform.WitherForm"]
+  },
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
