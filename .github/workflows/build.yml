@@ -4,11 +4,12 @@ name: Build Wither Form
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -17,10 +18,15 @@ jobs:
           distribution: temurin
           java-version: '25'
 
-      - run: chmod +x gradlew
-      - run: ./gradlew build
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.8.2'
 
-      - uses: actions/upload-artifact@v4
+      - name: Build mod
+        run: gradle build --no-daemon
+
+      - name: Upload mod
+        uses: actions/upload-artifact@v4
         with:
           name: WitherForm-26.3
           path: build/libs/*.jar
